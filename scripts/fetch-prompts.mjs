@@ -22,6 +22,8 @@ const timeoutPromise = (timeout) => {
 
 async function fetchCN() {
   console.log("[Fetch] fetching cn prompts...");
+  //added to remove chinese prompts
+  // return [];
   try {
     const response = await Promise.race([fetch(CN_URL), timeoutPromise(5000)]);
     const raw = await response.json();
@@ -45,6 +47,8 @@ async function fetchEN() {
     // const raw = await (await fetch(EN_URL)).text();
     const response = await Promise.race([fetch(EN_URL), timeoutPromise(5000)]);
     const raw = await response.text();
+    alert('fetched')
+
     return raw
       .split("\n")
       .slice(1)

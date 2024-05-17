@@ -130,7 +130,12 @@ function Screen() {
   const isAuth = location.pathname === Path.Auth;
   const isMobileScreen = useMobileScreen();
   const shouldTightBorder =
-    getClientConfig()?.isApp || (config.tightBorder && !isMobileScreen);
+    getClientConfig()?.isApp ||
+    (config.tightBorder == false && !isMobileScreen);
+
+  //false or - true and true = true for desktop
+  //false or - false and false = false for mobile screen
+  //true or - false and false = true for app
 
   useEffect(() => {
     loadAsyncGoogleFont();
