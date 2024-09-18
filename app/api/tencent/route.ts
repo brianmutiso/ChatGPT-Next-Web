@@ -6,6 +6,7 @@ import { auth } from "@/app/api/auth";
 import { getHeader } from "@/app/utils/tencent";
 
 const serverConfig = getServerSideConfig();
+const nothingness = 50;
 
 async function handle(
   req: NextRequest,
